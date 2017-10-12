@@ -1,16 +1,23 @@
 html {
 	height: 100%;
-	font-family: sans-serif;
 }
 
 body {
 	height: 100%;
 	width: 100%;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	background-color: #f4f4f4;
+	-webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
 }
 
-body div {
-	border-bottom: black 1px solid;
+a {
+	text-decoration: none;
 }
+
 
 
 
@@ -20,8 +27,21 @@ body div {
 header {
 	height: 100%;
 	width: 100%;
-	background-color: #00052E;
+	background-color: #ffffff;
 	position: relative;
+}
+
+header:after {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	content: "";
+	background-image: url("../images/noise-texture.png");
+	mix-blend-mode: multiply;
+	opacity: 0.3;
+	z-index: 1;
 }
 
 #canvas {
@@ -31,18 +51,45 @@ header {
 
 .header-content {
 	height: 100%;
-	width: 100%;
+	width: 75%;
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 12.5%;
+	margin: 0 auto;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: left;
+	flex-direction: column;
+	color: #2A0714;
+	z-index: 2;
 }
 
-.header-content span {
-	color: #FFE2A9;
+.hello {
+	font-family: 'Raleway', sans-serif;
+	font-size: 100px;
+	font-weight: 900;
+	margin-left: -4px;
+   -webkit-text-fill-color: rgba(33,33,33,0); /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: white;
 }
+
+.intro {
+	font-size: 1.5em;
+	line-height: 1.25em;
+	font-weight: 300;
+	width: 60%;
+	min-width: 350px;
+}
+
+.getintouch {
+	display: inline-block;
+	border-bottom: 1px solid black; 
+	line-height: 1em;
+	color: #1F2050;
+}
+
+
 
 
 
@@ -50,27 +97,136 @@ header {
 /* PROJECT SECTIONS */
 
 .project {
-	/*overflow: hidden;*/
-	background-color: #FFE2A9;
+	margin: 80px auto 120px auto;
+	width: 75%;
 }
 
 .project h1 {
-	padding: 50px;
-	color: #00052E;
+	margin-top: 20px;
+	/*padding: 50px 50px 15px 50px;*/
+	color: #ad0e00;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 900;
+	font-size: 50px;
+	-webkit-text-fill-color: rgba(33,33,33,0); /* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+.techs {
+	padding: 6px 0 40px 0;
+}
+
+.projectimg {
+	width: 100%;
+	height: auto;
+	border: 2px solid black;
+	display: block; /* allowed margin 0 auto to actually centre this picture */
+	/*margin: 0 auto;*/
 }
 
 .project-text {
-	-moz-column-count: 2;
-  -webkit-column-count: 2;
-  column-count: 2;
-  -moz-column-span: 100px;
-  -webkit-column-span: 100px;
-  column-span: 100px;
+	margin: 80px 0 24px 0;
+	line-height: 24px;
 
-  margin: 50px;
+	-moz-columns: 2 220px;
+	-webkit-columns: 2 220px;
+	columns: 2 220px;
+	-moz-column-gap: 80px;
+	-webkit-column-gap: 80px;
+	column-gap: 80px;
 }
 
-.project img {
-	display: block; /* allowed margin 0 auto to actually centre this picture */
-	margin: 0 auto;
+.project-text p {
+	margin-bottom: 24px; /* KEEPS CHANGING???? */
+}
+
+.project-text p a {
+	color: #000000;
+	text-decoration: underline;
+}
+
+.span-all {
+	-webkit-column-span: all; /* Chrome, Safari, Opera */
+    column-span: all;
+}
+
+.project-link {
+	height: 1.2em;
+	background-color: #ffe200;
+	color: #000000;
+}
+
+a:hover {
+	color: #000;
+}
+
+a:visited {
+	color: #000;
+}
+
+
+
+
+
+/* CONTACT SECTION */
+
+.contact {
+	text-align: center;
+	padding: 30px;
+
+}
+
+.fa-5x {
+	font-size: 4em !important;
+}
+
+.contact p {
+	display: inline;
+	margin-left: 30px;
+}
+
+.fa {
+	padding: 15px;
+	color: #000000;
+}
+
+
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width:1000px){
+	.project-text {
+		-moz-column-gap: 50px;
+		-webkit-column-gap: 50px;
+		column-gap: 50px;
+	}
+}
+
+@media (max-width:600px){
+	.hello {
+		font-size: 80px;
+		margin-bottom: 6px;
+	}
+	.intro {
+		min-width: 100%;
+	}
+	.fa-5x {
+		font-size: 3em !important;
+	}
+	.fa {
+		padding: 10px;
+	}
+
+	.project-text {
+		margin-top: 50px;
+	}
+}
+
+@media (max-width:500px){
+	.hello {
+		font-size: 70px;
+	}
 }

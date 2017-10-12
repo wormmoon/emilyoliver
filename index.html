@@ -5,38 +5,91 @@
 <head>
 	<title>// EMILY OLIVER //</title>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+
 	<!-- CSS RESET -->
-	 <link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
 
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<script type="text/javascript" src="script.js"></script>
+	<!-- JAVASCRIPT -->
+
+	<script type="text/javascript" src="js/lib/chroma.js"></script>
+	<script type="text/javascript" src="js/lib/tween.js"></script>
+	<script type="text/javascript" src="js/lib/smooth-scroll.js"></script>
+
+
+	<script type="text/javascript" src="js/main-script.js"></script>
+
+
+
+
+	<!-- FONTS -->
+	<script src="https://use.fontawesome.com/dadc3a1a88.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200,900|Open+Sans:400,300|PT+Sans:400,i400|Source+Sans+Pro:400,300,100" rel="stylesheet">
 </head>
+
+
 
 
 <body onload="init()" onresize="metrics()">
 	<header>
-	<canvas id="canvas"></canvas>
-	<div class="header-content">
-		<span>HELLO</span>
-	</div>
+		<canvas id="canvas"></canvas>
+		<div class="header-content">
+			<div class='hello'>HELLO</div>
+			<div class="intro">
+			I'm a developer in (perpetual) training. I like Javascript a lot but have also dabbled in HTML, CSS, Python, and Ruby. See below for some examples of my work or <a data-scroll class="getintouch" href="#contact">get in touch</a>.
+			</div>
+		</div>
 	</header>
 
-	<div class="project first-project">
-		<h1>PROJECT TITLE</h1>
-		<img src="https://dummyimage.com/800x500/00052E/fff"/>
-		<p class="project-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<div class="project">
+		<a href="https://twitter.com/arandomweather"><h1>RANDOM WEATHER BOT</h1></a>
+		<div class="techs">Python, APIs</div>
+		<img class="projectimg" src="images/randomweather.png"/>
+		<div class="project-text">
+			<p>After seeing a couple of tutorials online for building twitter bots which looked simple enough and discovering the Dark Sky weather API, an idea popped into my head for a twitter bot which tweets the weather at the current time in a random city. The idea was also partly inspired by the fact that I have every city I've visited in the past few years in my weather app on my phone so I can always monitor them to satisfy my curiosity; so it's something I found interesting anyway.</p>
+
+			<p>The tutorial I ended up going with used Python, which meant using a language I'd never used before, but I felt confident the tutorial and help from <a href="http:/codebar.io">Codebar Brighton</a> would provide enough help with the syntax for me to be able to do it. The code itself ended up being surprisingly short, and was mostly developed during one 2-hour Codebar session.</p>
+
+			<p>The bot works by randomly choosing a line in a big file I have with every city in the world in it (3.2 million lines!) and plugging the latitude and longitude into the Dark Sky API to get a JSON file containing the weather information back. The tweet is then built with this information, and submitted using the Twitter API. I am currently in the process of putting the code on Heroku so I will no longer need to tweet manually using the commandline.</p>
+		</div>
+
+		<span class="project-link">
+			<a href="https://twitter.com/arandomweather">Go to live project > ></a>
+		</span>
+		
 	</div>
 
-	<div class="project second-project">
+	<div class="project">
+		<a href="https://wormmoon.github.io/star-charts/"><h1>CONST&shy;ELLATION CHARTS</h1></a>
+		<div class="techs">HTML5 Canvas, Javascript</div>
+		<!--canvas id="constellation-canvas"></canvas-->
+		<img class="projectimg" src="images/constellation1.gif"/>
+		<div class="project-text">
+			<p>I'm super interested in space and a lot of my previous artistic work has been based around constellations and stars. With this in mind, when I discovered HTML5 canvas and procedural generation I decided it would be interesting to write a program that could generate new constellations. Eventually I would like this project to create a whole star map of a fictional sky somewhere containing many different constellations that perhaps even have procedurally generated fictional names as well.</p>
+
+			<p>So far the program generates one constellation every time the page is refreshed. Despite looking simple, the code required to generate something which actually looks like a real constellation and not just a collection of points and lines was surprisingly complicated. As I started writing the code I recognised the need for more and more rules, for example not allowing lines to intersect.</p>
+
+			<p>This code works by creating an array of star point and line objects. A star point is picked and then an angle off that point is picked and a new star point is placed at a random distance away and a line is drawn between them. This happens until 4-10 stars and lines joining them are contained in the arrays and those are then drawn to the canvas. At the moment the code sometimes breaks one of the rules if it cannot find any other way around and may intersect another line for example. I am working on these bugs before I then write rules to allow more than one constellation on the canvas and finalise the design to create a complete sky chart.</p>
+		</div>
+
+		<span class="project-link">
+			<a href="https://wormmoon.github.io/star-charts/">Go to live project > ></a>
+		</span>
 	</div>
+
 
 	<div class="about">
 	</div>
 
-	<div class="contact">
-	</div>	
+	<div class="contact" id="contact">
+		<a href="mailto:mleeoliver@gmail.com"><i class="fa fa-envelope-open-o fa-5x"></i></a>
+		<a href="https://github.com/wormmoon"><i class="fa fa-github fa-5x"></i></a>
+		<a href="https://twitter.com/wormmmoon"><i class="fa fa-twitter fa-5x"></i></a>
+	</div>
 </body>
 
 
